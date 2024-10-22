@@ -9,7 +9,7 @@ import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.model.Task
 
-class TaskAdapter(private var taskList: List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(private var taskList: MutableList<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     {
@@ -35,5 +35,10 @@ class TaskAdapter(private var taskList: List<Task>) : RecyclerView.Adapter<TaskA
         val task = taskList.get(position);
         holder.task.setText(task.task)
         holder.checkbox.isSelected = task.isSelected
+    }
+
+    fun addTask(task: Task) {
+        taskList.add(task)
+        notifyItemInserted(taskList.size - 1)
     }
 }

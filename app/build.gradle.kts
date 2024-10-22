@@ -50,17 +50,28 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    val roomVersion = "2.6.1" // Check for the latest version
+    //LifeCycle
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
 
-    implementation("androidx.room:room-runtime:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-    implementation ("androidx.room:room-ktx:$roomVersion")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    // Coroutines
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+
     //dagger-hilt
-    implementation("com.google.dagger:hilt-android:2.28-alpha")
-    kapt("com.google.dagger:hilt-android-compiler:2.28-alpha")
+    implementation ("com.google.dagger:hilt-android:2.46")
+    kapt ("com.google.dagger:hilt-android-compiler:2.46")
 
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01")
+    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     // When using Kotlin.
-    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha01")
+    kapt ("androidx.hilt:hilt-compiler:1.2.0")
+
+    implementation ("androidx.activity:activity-ktx:1.9.2")
+    implementation ("androidx.fragment:fragment-ktx:1.8.4")
+
+    // room library
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt ("androidx.room:room-compiler:$room_version")
 }
