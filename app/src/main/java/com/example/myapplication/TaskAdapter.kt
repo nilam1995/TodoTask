@@ -41,4 +41,11 @@ class TaskAdapter(private var taskList: MutableList<Task>) : RecyclerView.Adapte
         taskList.add(task)
         notifyItemInserted(taskList.size - 1)
     }
+
+    fun setData(it: List<Task>?) {
+        if (it != null) {
+            taskList.addAll(it)
+            notifyDataSetChanged()
+        }
+    }
 }

@@ -11,4 +11,7 @@ interface TodoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(task: Task)
+
+    @Query("select * from tasks")
+    suspend fun getTaskList():List<Task>
 }

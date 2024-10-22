@@ -9,4 +9,7 @@ class LocalRepository @Inject constructor(
 ) {
     suspend fun AddTask(list: Task) = appDao.insertTask(list)
 
+    suspend fun getTaskList():List<Task> = appDao.getTaskList()
+
+
 }
