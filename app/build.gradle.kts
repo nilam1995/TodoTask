@@ -62,9 +62,8 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.46")
     kapt ("com.google.dagger:hilt-android-compiler:2.46")
 
-    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     // When using Kotlin.
-    kapt ("androidx.hilt:hilt-compiler:1.2.0")
+//    kapt ("androidx.hilt:hilt-compiler:1.2.0")
 
     implementation ("androidx.activity:activity-ktx:1.9.2")
     implementation ("androidx.fragment:fragment-ktx:1.8.4")

@@ -15,7 +15,7 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideArticleDatabase(
+    fun provideTodoDatabase(
         @ApplicationContext app: Context
     ) = Room.databaseBuilder(
         app,
@@ -25,6 +25,6 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideContactsDao(db: AppDatabase) = db.appDao()
+    fun provideTodoDao(db: AppDatabase) = db.appDao()
 
 }
