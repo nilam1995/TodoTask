@@ -24,6 +24,11 @@ class TaskViewModel @Inject constructor(private val localRepository:LocalReposit
         localRepository.AddTask(task)
     }
 
+    fun deleteTaskFromDb(task:Task) = viewModelScope.launch{
+        localRepository.deleteTaskFromDb(task)
+        _taskList.value = localRepository.getTaskList()
+    }
+
     fun getTaskFromoDb(): Job = viewModelScope.launch{
         _taskList.value = localRepository.getTaskList()
     }

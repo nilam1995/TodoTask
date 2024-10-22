@@ -10,7 +10,7 @@ import com.example.myapplication.model.Task
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),OnTaskDeleteListener {
     lateinit var et_addTask:EditText
     lateinit var add_btn:Button
     lateinit var rv_tasks:RecyclerView
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         et_addTask = findViewById(R.id.et_addTask)
         rv_tasks = findViewById(R.id.rv_tasks)
 
-        taskAdapter = TaskAdapter(mutableListOf())
+        taskAdapter = TaskAdapter(mutableListOf(),this)
         rv_tasks.adapter = taskAdapter
 
         add_btn.setOnClickListener {
@@ -41,11 +41,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        taskViewModel!!.taskList.observe(this,{
-            if(it.size!=0){
+        updateUI()
+    }
+
+    private fun updateUI() {
+        taskViewModel?.taskList?.observe(this) {
+            if (it.isNotEmpty()) {
                 taskAdapter.setData(it)
             }
-        })
+        }
+    }
+
+    override fun onTaskDelete(task: Task) {
+        taskViewModel?.deleteTaskFromDb(task)
+        updateUI()
 
     }
 }

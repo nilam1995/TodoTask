@@ -8,6 +8,8 @@ class LocalRepository @Inject constructor(
     private val appDao: TodoDao
 ) {
     suspend fun AddTask(list: Task) = appDao.insertTask(list)
+    suspend fun deleteTaskFromDb(list: Task) = appDao.delete(list)
+
 
     suspend fun getTaskList():List<Task> = appDao.getTaskList()
 
